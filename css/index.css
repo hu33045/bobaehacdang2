@@ -1,44 +1,47 @@
 body{
-  position: relative;
+ position: relative;
  background-color: #fff4e4;
+ min-width: 1440px;
 }
 body::before{
   content: "";
   display: block;
-  width: 100%;
   height: calc(100% + 250px);
   position: absolute;
-  background-position: top;
+  background-position: center;
   background-size: cover;
   background-image: url(../img/logo2.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   z-index: -1;
   opacity: 0.6;
+  width: auto;
 }
 /* 상단영역 */
 header {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
   z-index: 1;
 }
 header div.wrap {
   
 }
 header div.wrap nav {
-  display: grid;
-  grid-template-columns: 1fr auto auto;
+  display: flex;
   align-items: center;
   column-gap: 45px;
+  justify-content: right;
+  padding-top: 20px;
 }
 header div.wrap nav h1 {
   justify-self: left;
-  /*! perspective: 170px; */
 }
-header div.wrap nav h1 a {
+header div.wrap nav h1 a{
   font-size: 0;
+}
+header div.wrap nav h1 a:before {
+  content:"";
   background-image: url(../img/logo.png);
   width: 80px;
   height: 80px;
@@ -50,6 +53,9 @@ header div.wrap nav h1 a {
   animation-duration: 10s;
 /*   animation-direction: alternate; */
   animation-iteration-count: 2;
+  position: absolute;
+  left: 10px;
+  top:10px;
 }
 @keyframes logo{
   0%{
@@ -245,9 +251,11 @@ div#title{
   background: -webkit-linear-gradient(to top, #FFFDE4, #005AA7);
   min-height: 700px;
   position: relative;
+  min-width: 1440px;
 }
 div#title div.wrap{
   perspective: 3000px;
+  min-width: 1440px;
 }
 div#title div.wrap h2{
   margin-bottom: 30px;
@@ -258,6 +266,7 @@ div#title div.wrap h2{
   animation-fill-mode: forwards;
   animation-direction: reverse;
   font-weight: 800;
+  text-align: center;
 }
 @keyframes titleTextUp{
   0%{ /* 처음상태 */
@@ -494,6 +503,7 @@ section::before{
 #product .wrap{
 padding-top: 250px;
 background-color: #fff4e4;
+padding-left:50px;
 }
 #product .wrap h2{
   /*! margin-top: 20px; */
@@ -604,7 +614,7 @@ section#business {
 }
 section#business div.wrap {
   /*! box-sizing: border-box; */
-  width: 1600px;
+  width: 1440px;
   margin: 0 auto;
   padding-top: 100px;
   position: relative;
@@ -833,7 +843,6 @@ section#business div.wrap div ul.bus li.giv a h4 {
 /* 포트폴리오 */
 #portfolio {
   display: flex;
-  justify-content: center;
   align-items: center;
 background-color: #fff4e4;
 }
@@ -857,12 +866,11 @@ position: relative;
 }
 #portfolio .wrap .list button.slick-prev {
   background-image: url(../img/prev.png);
-  transform: translateX(-50%);
+  left: -40px;
 }
 #portfolio .wrap .list button.slick-next {
   background-image: url(../img/next.svg);
-  transform: translateY(-25%);
-  transform: translateX(50%);
+  right: -40px;
 }
 #portfolio .wrap .list button::before {
   display: none;
@@ -895,8 +903,9 @@ position: relative;
 
 #portfolio div.wrap {
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   padding-top: 240px;
+  min-width: 1440px;
 }
 
 #portfolio div.wrap h4{
@@ -1017,6 +1026,7 @@ position: relative;
   display: flex;
   justify-content: space-between;
   flex-direction:column;
+  padding: 0 20px;
 }
 #process div.wrap .ly{  
   justify-content: space-between;
@@ -1119,6 +1129,7 @@ position: relative;
 #contact .wrap{
  flex-direction: column;
  padding-top: 200px;
+ min-width: 1440px;
 }
 #contact p{
   padding-top: 30px;
