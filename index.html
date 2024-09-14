@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서은진 보배지니</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/common.css">
+    <!-- 구글폰트 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/jquery-3.7.1.js"></script>
+    <!-- 슬릭 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.pfAni').slick({
+                slidesToShow: 4,
+                slidesToScroll: 2,
+                autoplay: true,
+                autoplaySpeed: 1000,
+                dots: false,
+                infinite: true,
+                speed: 500,
+                cssEase: 'ease-out',
+                arrows:true,
+                fade:false,
+                responsive: [
+                    {
+                    breakpoint: 1201,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true,
+                        arrows:true
+                    }
+                    },
+                    {
+                    breakpoint: 769,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows:true
+                    }
+                    }
+                   
+                ]
+            });
+            $('.aboutAni').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1000,
+                dots: false,
+                infinite: true,
+                speed: 2000,
+                cssEase: 'ease-out',
+                arrows: false,
+                fade: true
+            });
+            $('.snsani').slick({
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                dots: true,
+                infinite: false,
+                speed: 1500,
+                cssEase: 'ease-out',
+                arrows:false,
+                fade:false,
+                responsive: [
+                    {
+                    breakpoint: 1201,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        infinite: true,
+                        dots: true
+                    }
+                    },
+                    {
+                    breakpoint: 769,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows:true
+                    }
+                    }
+                   
+                ]
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            var f=0;
+            f = $("aside ul li").click(function(){
+                f=$(this).index(); 
+                $("html,body").animate({scrollTop:c[f]},1000); 
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+
+        // 대메뉴클릭시 해당컨텐츠로 페이지슬라이딩1,2,3,4,5
+            //컨텐츠의 위치값 확인하기 c1,c2,c3,c4,c5
+            //var c1 = $("#aboutme").offset().top;// #aboutme의 높이위치값을 구해서 c1변수에 넣어라
+            //var c2 = $("#skill").offset().top;
+            //var c3 = $("#portfolio").offset().top;
+            //var c4 = $("#process").offset().top;
+            //var c5 = $("#contact").offset().top; 
+            var c=[
+                $("header").offset().top,
+                $("#aboutme").offset().top,
+                $("#product").offset().top,
+                $("#business").offset().top,
+                $("#portfolio").offset().top,
+                $("#process").offset().top,
+                $("#contact").offset().top
+            ]; 
+
+            console.log(c[0]);
+            /* 
+            $("header div.wrap nav ul.gnb li:nth-child(1)").click(function(){
+              $("html,body").animate({scrollTop:c[0]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            $("header div.wrap nav ul.gnb li:nth-child(2)").click(function(){
+              $("html,body").animate({scrollTop:c[1]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            $("header div.wrap nav ul.gnb li:nth-child(3)").click(function(){
+              $("html,body").animate({scrollTop:c[2]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            $("header div.wrap nav ul.gnb li:nth-child(4)").click(function(){
+              $("html,body").animate({scrollTop:c[3]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            $("header div.wrap nav ul.gnb li:nth-child(5)").click(function(){
+              $("html,body").animate({scrollTop:c[4]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            */
+
+           // index()을 이용하여 처리하기
+            var n;
+            n = $("header div.wrap nav ul.gnb li").click(function(){
+                n=$(this).index(); 
+                $("html,body").animate({scrollTop:c[n]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            o = $("footer div.wrap ul.fnb li").click(function(){
+                o=$(this).index(); 
+                $("html,body").animate({scrollTop:c[o]},1000);  
+                return false; // a태그가 있는 경우에 새로고침으로 명령어실행할 시간이 없어서 작동이 안됨... 
+            });
+            // top버튼 추가하기
+            $('footer').prepend('<a href="#" class="top">Top</a>');
+            $("footer a.top").click(function(){
+                $("html,body").animate({scrollTop:0},1000);
+            });
+        });
+    </script>
+    <!-- 유투브영상 배경으로
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.4/css/jquery.mb.YTPlayer.min.css"> -->
+    <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.4/jquery.mb.YTPlayer.min.js"></script>
+    <script>
+        jQuery( function() {
+         jQuery( '#background' ).YTPlayer();
+         jQuery( '#cf1' ).YTPlayer();
+         jQuery( '#cf2' ).YTPlayer();
+         jQuery( '#cf3' ).YTPlayer(); 
+        }); -->
+    </script>
+    <script>
+    $(document).ready(function(){
+        // 컨텐츠 
+        $("#product ul.list li:nth-child(1) p,#product ul.list li:nth-child(1) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(2) p,#product ul.list li:nth-child(2) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(3) p,#product ul.list li:nth-child(3) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(4) p,#product ul.list li:nth-child(4) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(5) p,#product ul.list li:nth-child(5) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(6) p,#product ul.list li:nth-child(6) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(7) p,#product ul.list li:nth-child(7) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(8) p,#product ul.list li:nth-child(8) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(9) p,#product ul.list li:nth-child(9) a").wrapAll("<div class='wrapText'></div>");
+        $("#product ul.list li:nth-child(10) p,#product ul.list li:nth-child(10) a").wrapAll("<div class='wrapText'></div>");
+        });
+    </script>    
+    <style>
+        #background {
+            z-index: -1;
+            /* position: absolute; */
+        }
+        #wrapper_background{
+            position: absolute !important;
+        }
+        #wrapper_cf1{
+            position: relative !important;
+            opacity: 1 !important;
+            min-width: 300px !important;
+            min-height: 200px !important;
+            margin: 0 10px ;
+            border-radius: 50px;
+            border: 20px solid #000;
+        }
+        #wrapper_cf2{
+            position: relative !important;
+            opacity: 1 !important;
+            min-width: 300px !important;
+            min-height: 200px !important;
+            margin: 0 10px ;
+            border-radius: 50px;
+            border: 20px solid #000;
+        }
+        #wrapper_cf3{
+            position: relative !important;
+            opacity: 1 !important;
+            min-width: 300px !important;
+            min-height: 200px !important;
+            margin: 0 10px ;
+            border-radius: 50px;
+            border: 20px solid #000;
+        }
+        .wcf{
+            width: 100%;
+            height: 300px;
+        }
+        .mb_YTPTime{
+            display: none;
+        }
+        .mb_YTPMuteUnmute ytpicon{
+            display: none;
+        }
+    </style>
+    <!-- aos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+        AOS.init();
+        });
+        
+    </script>
+</head>
+
+<body>
+    
+    <!-- 상단영역 -->
+    <header>
+        <div class="wrap">
+            <nav class="flex">
+                <h1><a href="" class="block">보배학당</a></h1>
+                <ul class="gnb flex">
+                    <li><a href="" class="block h5">홈</a></li>
+                    <li><a href="" class="block h5">원장소개</a></li>
+                    <li><a href="" class="block h5">활동</a></li>
+                    <li><a href="" class="block h5">디지털</a></li>
+                    <li><a href="" class="block h5">프로그램</a></li>
+                    <li><a href="" class="block h5">칼럼</a></li>
+                    <li><a href="" class="block h5">소통하기</a></li>
+                </ul>
+                <ul class="enb flex">
+                    <li><a href="https://open.kakao.com/o/shR2Ib8d/" class="block h6">고객상담</a></li>
+                    <li><a href="" class="block h6">문의하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <aside>
+        <ul>
+            <li class="rogo">
+                <a class="borderB" href="">HOME</a>
+            </li>
+            <li class="">
+                <a href="" class="">ABOUT</a>
+            </li>
+            <li class="">
+                <a href="" class="">ACTION</a>
+            </li>
+            <li class="">
+                <a href="" class="">BUSINESS</a>
+            </li>
+            <li class="">
+                <a href="" class="">PROGRAM</a>
+            </li>
+            <li class="">
+                <a href="" class="">PROCESS</a>
+            </li>
+            <li class="">
+                <a href="" class="">CONTACT</a>
+            </li>
+        </ul>
+    </aside>
+    <!-- 타이틀영역 -->
+    <div id="title">
+        <div class="wrap">
+            <h2 class="h1">삶의 지혜를 배우는 “한자 인문학”</h2>
+            <p class="h4">한국디지털한자교육원 보배학당</p>
+        </div>
+        <!-- 
+            videoURL : 동영상의 주소입니다.
+            mute : 자동 재생하려면 음소거를 해야 합니다.
+            showControls : 재생 등 컨트롤 바를 보여줄지 정합니다.
+            useOnMobile : 모바일 에서도 재생할지 정합니다.
+            quality : 영상 품질을 정합니다.
+            containment : 영상이 들어갈 위치입니다. body인 경우, 웹브라우저에 꽉 차게 영상을 보여줍니다.
+            loop : 반복 여부를 정합니다.
+            autoPlay : 자동 재생 여부를 정합니다.
+            stopMovieOnBlur : 다른 프로그램을 활성하는 등, 포커스가 이동했을 때 재생 여부를 정합니다.
+            startAt : 시작 시점을 정합니다.
+            opacity : 투명도를 정합니다.
+        -->
+        <!-- <div id="background" class="player" data-property="{
+            videoURL: '',
+            mute: true, 
+            showControls: false,
+            useOnMobile: true,
+            quality: 'highres',
+            containment: 'body',
+            loop: true,
+            autoPlay: true,
+            stopMovieOnBlur: false,
+            startAt: 0,
+            opacity: 1
+            }">
+        </div> -->
+    </div>
+    <!-- 메인 -->
+    <section id="aboutme">''
+        <div class="wrap paddingT50 paddingB50 grid">
+            <h2 class="h2 borderT">원장소개</h2>
+            <figure>
+                <div class="wimg aboutAni">
+                    <img src="img/bo.jpg" alt="">
+                    <img src="img/bo1.jpg" alt="">
+                </div>
+                <figcaption>보배지니</figcaption>
+            </figure>
+            <ul class="intro">
+                <li>
+                    <h3 class="h6 hide">원장소개</h3>
+                    <p class="h5">기업가정신과 셀프리더십으로 도약하라!<br>
+                        가치를 경영하는 디지털튜터 서은진</p>
+                </li>
+                <li>
+                    <h3 class="h6">활동분야</h3>
+                    <p class="p15">
+                        회복탄력성전문가<br> 
+                        시그니처&디맹탈출 챌린지 리더<br>  
+                        홈플디튜스쿨 미니챌린지 리더<br>  
+                        디지털배움터 강사(슬디생/디바시/강사스쿨)<br>  
+                        MKYU디지털튜터협회 사내강사<br>  
+                        홈플러스문화센터 오산점 동탄점 강사<br>  
+                        디튜캡짱스터디 수석멘토 디튜북짱 북클럽 리더    
+                    </p>
+                </li>
+                <li>
+                    <h3 class="h6">목표</h3>
+                    <p class="p15">5080시니어의 디지털문맹탈출을 통한 회복탄력성 향상에 기여하겠습니다.</p>
+                </li>
+                <li>
+                    <h3 class="h6">계기와 열정</h3>
+                    <p class="p15">기업가정신과 셀프리더십으로<br>
+                        가치를 경영하는 디지털튜터 서은진</p>
+                </li>
+            </ul>
+            <ul class="info">
+                <li><strong>이메일</strong>example@example.com</li>
+                <li><strong>전화번호</strong>+010-8376-4708</li>
+                <li><strong>문의하기</strong>https://open.kakao.com/o/shR2Ib8d</li>
+            </ul>
+        </div>
+    </section>
+    <section id="product">
+        <div class="wrap paddingB100">
+            <h2 class="h2 borderT">보배학당의 활동</h2>
+            <ul class="list">
+                <li>
+                    <figure><img src="img/1.jpg" alt=""></figure>
+                    <h3>1</h3>
+                    <p>한자로 만나는 디지털아트<br>한자로 만나는 디지털아트<br>한자로 만나는 디지털아트</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/2.jpg" alt=""></figure>
+                    <h3>2</h3>
+                    <p>한자로 만나는 디지털아트<br>시대개막<br>TERRA</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/3.jpg" alt=""></figure>
+                    <h3>3</h3>
+                    <p>한자로 만나는 디지털아트<br>다양한 소식을 알려 드립니다.</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/4.jpg" alt=""></figure>
+                    <h3>4</h3>
+                    <p>한자로 만나는 디지털아트<br>한자로 만나는 디지털아트</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/8.jpg" alt=""></figure>
+                    <h3>5</h3>
+                    <p>한자로 만나는 디지털아트<br>모두가 즐겁고 행복한 세상을<br>만들기 위한 실천입니다.</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/6.jpg" alt=""></figure>
+                    <h3>6</h3>
+                    <p>한자로 만나는 디지털아트<br>[서은진의 한자 인문학] “디지털 시대에 필요한 인성 한자 교육”</p>
+                    <a href="">더보기</a>
+                </li>
+                <li>
+                    <figure><img src="img/7.jpg" alt=""></figure>
+                    <h3>7</h3>
+                    <p>한자로 만나는 디지털아트!<br>한자로 만나는 디지털아트</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/5.jpg" alt=""></figure>
+                    <h3>8</h3>
+                    <p>한자로 만나는 디지털아트.</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/9.jpg" alt=""></figure>
+                    <h3>9</h3>
+                    <p>한자로 만나는 디지털아트<br>직접 만나보세요.</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+                <li>
+                    <figure><img src="img/10.jpg" alt=""></figure>
+                    <h3>9</h3>
+                    <p>한자로 만나는 디지털아트<br>한자로 만나는 디지털아트<br>직접 만나보세요.</p>
+                    <a href="">LEARN MORE</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="business">
+        <div class="wrap">
+            <h1 class=""><span>W</span><span>h</span><span>a</span><span>t</span> <span>w</span><span>e</span> <span>d</span><span>o</span>
+            <br><span>B</span><span>u</span><span>s</span><span>i</span><span>n</span><span>e</span><span>s</span><span>s</span></h1>
+            <p>디지털 한문 성장과 디지털 튜터활동을 위해 노력하고 있습니다.</p>
+            <div>
+                <ul class="bus">
+                    <li class="giv">
+                      <a href="" class="block">
+                        <h3 class="h5">디지털한문</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>한<br>문</h4>
+                        <i class="circle"></i>
+                      </a>
+                    </a>
+                    <li class="giv">
+                      <a href="" class="block">
+                        <h3 class="h5">디지털멘토</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>멘<br>토</h4>
+                        <i class="circle"></i>
+                      </a>
+                    </li>
+                    <li class="giv">
+                      <a href="" class="block">
+                        <h3 class="h5">디지털문맹탈출</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>문<br>맹<br>탈<br>출</h4>
+                        <i class="circle"></i>
+                      </a>
+                    </li>
+                    <li class="giv">
+                      <a href="" class="block">
+                        <h3 class="h5">디지털배움터</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>배<br>움<br>터</h4>
+                        <i class="circle"></i>
+                      </a>
+                    </li>
+                    <li class="giv">
+                      <a href="" class="block">
+                        <h3 class="h5">디지털아트</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>아<br>트</h4>
+                        <i class="circle"></i>
+                      </a>
+                    </li>
+                    <li class="giv">
+                     <a href="" class="block">								
+                        <h3 class="h5">디지털강연</h3>
+                        <button>BUSINESSAREA</button>
+                        <h4 class="h6">디<br>지<br>털<br>강<br>연</h4>
+                        <i class="circle"></i>
+                     </a>
+                    </li>						
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio  -->
+    <section id="portfolio">
+        <div class="wrap paddingT50 paddingB50 flex">
+            <h2 class="h2 borderT">프로그램</h2>
+            <h5 class="bold" data-aos="fade-down" data-aos-offset="100" data-aos-duration="2000">디지털 한자 교육원 보배학당
+                <span class="block"></span></h5><p data-aos="fade-up" data-aos-offset="200" data-aos-duration="1000">한자로 만나는 디지털아트</p> 
+            <ul class="list pfAni">
+                <li class="pfAni-1">
+                    <div>
+                        <h3 class="h3">라이브클래스</h3>
+                        <figure>
+                            <img src="img/라이브클래스.png" alt="라이브클래스">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>라이브클래스</h4></strong></li>
+                            <li><strong class="bold"><p>보배지니와 함께하는 디맹猛월드</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="https://bobejinny.liveklass.com/classes/193843" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="pfAni-2">
+                    <div>
+                        <h3 class="h3">노배한자</h3>
+                        <figure>
+                            <img src="img/bo2.jpg" alt="노배한자">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>노배한자</h4></strong></li>
+                            <li><strong class="bold"><p>노래로 배우는 한자</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="ecommerce_live_link" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="pfAni-3">
+                    <div>
+                        <h3 class="h3">인성한자</h3>
+                        <figure>
+                            <img src="img/bo3.jpg" alt="인성한자">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>인성한자</h4></strong></li>
+                            <li><strong class="bold"><p>사자소학 & 명신보감</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="ecommerce_live_link" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="pfAni-4">
+                    <div>
+                        <h3 class="h3">한자로 만나는 디지털아트</h3>
+                        <figure>
+                            <img src="img/bo4.jpg" alt="한자로 만나는 디지털아트">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>한자로 만나는 디지털아트</h4></strong></li>
+                            <li><strong class="bold"><p>한시집 배우기 & 시화만들기</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="ecommerce_live_link" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="pfAni-5">
+                    <div>
+                        <h3 class="h3">웹툰한자 동화</h3>
+                        <figure>
+                            <img src="img/bo5.jpg" alt="웹툰한자 동화">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>웹툰한자 동화</h4></strong></li>
+                            <li><strong class="bold"><p>공모전</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="ecommerce_live_link" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="pfAni-6">
+                    <div>
+                        <h3 class="h3">웹툰한자</h3>
+                        <figure>
+                            <img src="img/bo6.jpg" alt="웹툰한자">
+                        </figure>
+                        <ul class="sub">
+                            <li><strong class="bold"><h4>웹툰한자</h4></strong></li>
+                            <li><strong class="bold"><p>나만의 사전만들기</p></strong></li>
+                            <li><p>33,000원</p></li>
+                            <li class="flex"><a href="#" class="block b-medium purple rounded">주요활동</a>
+                                <a href="ecommerce_live_link" class="block b-medium blue rounded">상세보기</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="process">
+        <div class="wrap paddingT50 paddingB50 flex">
+            <div class="ly">
+                <h2 class="h2 borderT">칼  럼</h2>
+                <a href="">View More</a>
+            </div>
+            <ul class="wnews">
+                <li>
+                    <a href="https://www.lecturernews.com/news/articleView.html?idxno=160917">
+                        <span class="hide">artists</span>
+                        <h3>[서은진의 한자 인문학] 삶의 지혜를 배우는 첫걸음 “한자 인문학”</h3>
+                        <span class="date">2024.09.04</span>
+                        <div class="img">
+                            <img src="">  
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.lecturernews.com/news/articleView.html?idxno=160920">
+                    <span class="hide">artists</span>
+                        <h3>툰스퀘어·AI투닝교육연구소의 ‘AI투닝공인강사 역량강화 워크숍 2024’ 성료</h3>
+                        <span class="date">2024.09.04</span>
+                        <div class="img">
+                            <img src="">
+                            
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.lecturernews.com/news/articleView.html?idxno=161642">
+                    <span class="hide">artists</span>
+                        <h3>[서은진의 한자 인문학] “디지털 시대에 필요한 인성 한자 교육”</h3>
+                        <span class="date">2024.07.22</span>
+                        <div class="img">
+                            <img src="">
+                            
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <span class="hide">artists</span>
+                        <h3>한자로 만나는 디지털 아트</h3>
+                        <span class="date">2024.07.18</span>
+                        <div class="img">
+                            <img src="">   
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="wrap paddingT50 paddingB50 flex"> 
+            <h2 class="h2 borderT center">소통하기</h2>
+            <!-- <div class="wcf flex">
+                <div id="cf1" class="player" data-property="{
+                    videoURL: 'https://www.youtube.com/watch?v=gmnBWce-I60',
+                    mute: true,
+                    showControls: true,
+                    useOnMobile: true,
+                    quality: 'highres',
+                    containment: '#contact .wcf',
+                    loop: true,
+                    autoPlay: true,
+                    stopMovieOnBlur: true,
+                    startAt: 1,
+                    opacity: 1
+                    }">
+                </div>
+                <div id="cf2" class="player" data-property="{
+                    videoURL: 'https://https://youtu.be/Hbjoeh-9eNo',
+                    mute: true,
+                    showControls: true,
+                    useOnMobile: true,
+                    quality: 'highres',
+                    containment: '#contact .wcf',
+                    loop: true,
+                    autoPlay: true,
+                    stopMovieOnBlur: true,
+                    startAt: 1,
+                    opacity: 1
+                    }">
+                </div>
+                <div id="cf3" class="player" data-property="{
+                    videoURL: 'https://www.youtube.com/watch?v=5JzHGhRg0WM&t=137s&pp=ygUM67O067Cw7KeA64uI',
+                    mute: true,
+                    showControls: true,
+                    useOnMobile: true,
+                    quality: 'highres',
+                    containment: '#contact .wcf',
+                    loop: true,
+                    autoPlay: true,
+                    stopMovieOnBlur: true,
+                    startAt: 1,
+                    opacity: 1
+                    }">
+                </div>
+            </div> -->
+            <p class="">디지털 한문 성장을 위해 노력하고 있습니다. <span class="block"></span>궁금한 사항이나 제안이 있으시면 연락 주시기 바랍니다.</p>
+            <div class="con">   
+                <ul class="list">
+                    <li><strong>이름(Name):</strong>서은진</li>
+                    <li><strong>이메일(Email):</strong> bobaejinny@naver.com</li>
+                    <li><strong></strong>전화번호(Phone):</strong> 010-8376-4708</li>
+                    <li><strong>주소(Address):</strong> 서울특별시 강남구 테헤란로</li>
+                </ul>
+                <a href="https://forms.gle/pv7a4Tazddsq6E3V8 " class="qna" target="_blank">문의사항 보내기</a>
+                    <ul class="sns flex">
+                        <li><a href="" class="">카카오톡</a></li>
+                        <li><a href="" class="">인스타그램</a></li>
+                        <li><a href="" class="">지메일</a></li>
+                    </ul>
+                <div class="sourcesite">
+                    <h3 class="h4">보배학당 이용 사이트</h3>
+                    <ul class="src flex">
+                        <li><a href="https://tooning.io/" class="block">투닝</a></li>
+                        <li><a href="https://chatgpt.com/" class="block">chatgpt</a></li>
+                        <li><a href="https://pixabay.com/ko/" class="block">Pixabay</a></li>
+                        <li><a href="https://cafe.naver.com/ditucapjjang?iframe_url=/MyCafeIntro.nhn%3Fclubid=30781709" class="block">navercafe</a></li>
+                        <li><a href="https://fonts.google.com/?subset=korean&script=Kore" class="block">Google font</a></li>
+                        <li><a href="https://www.canva.com/" class="block">Canva</canvas></a></li>
+                        <li><a href="https://band.us/band/94814285" class="block">BAND</a></li>
+                        <li><a href="https://blog.naver.com/PostView.naver?blogId=sej733&logNo=222353988164" class="block">blog</a></li>
+                    </ul>
+                </div> 
+            </div> 
+        </div>    
+    </section>
+    <section id="sns">
+        <div class="wrap paddingB100 paddingT50">
+            <h2 class="h3 text-center">SNS</h2>
+            <ul class="snsani">
+                <li class="sns1">
+                    <a href="">
+                        <h3 class="h4">FACEBOOK</h3>
+                        <p class="p">한자로 만들어가는<br>디지털세상</p>
+                    </a>
+                </li>
+                <li class="sns2">
+                    <a href="">
+                        <h3 class="h4">INSTAGRAM</h3>
+                        <p class="p">보배지니와 함께하는<br>디지털 한자</p>
+                    </a>
+                </li>
+                <li class="sns3">
+                    <a href="">
+                        <h3 class="h4">YOUTUBE</h3>
+                        <p class="p">보배지니의 모든것<br>한자 사랑 함께해요</p>
+                    </a>
+                </li>
+                <li class="sns5">
+                    <a href="">
+                        <h3 class="h4">INSTAGRAM</h3>
+                        <p class="p">보배지니와 함께하는<br>디지털 한자</p>
+                    </a>
+                </li>
+                <li class="sns6">
+                    <a href="">
+                        <h3 class="h4">NAVERCAFE</h3>
+                        <p class="p">세상에 하나뿐인 디지털 한문 교육원 만들기</p>
+                    </a>
+                </li>
+                <li class="sns7">
+                    <a href="">
+                        <h3 class="h4">BLOG</h3>
+                        <p class="p">보배지니의 모든것<br>한자 사랑 함께해요</p>
+                    </a>
+                </li>
+                <li class="sns8">
+                    <a href="">
+                        <h3 class="h4">INSTAGRAM</h3>
+                        <p class="p">그림자를 뚫고 나오는 미모👥</p>
+                    </a>
+                </li>
+                <li class="sns9">
+                    <a href="">
+                        <h3 class="h4">BLOG</h3>
+                        <p class="p">초예술적 아트 콜라보!<br>디지털아트</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- 하단영역 -->
+    <footer>
+        <div class="wrap paddingT50 paddingB50 grid">
+            <h1><a href="" class="block">SEO EUNJIN</a></h1>
+            <address class="h4">경기도 용인시 처인구 남사읍</address>
+            <ul class="sns flex">
+                <li><a href="" class="block">Notion</a></li>
+                <li><a href="" class="block">GitHub</a></li>
+                <li><a href="" class="block">Google Drive</a></li>
+                <li><a href="" class="block">Youtube</a></li>
+            </ul>
+            <ul class="fnb flex">
+                <li><a href="" class="block h5">보배학당</a></li>
+                <li><a href="" class="block h5">원장소개</a></li>
+                <li><a href="" class="block h5">활동</a></li>
+                <li><a href="" class="block h5">디지털</a></li>
+                <li><a href="" class="block h5">프로그램</a></li>
+                <li><a href="" class="block h5">칼럼</a></li>
+                <li><a href="" class="block h5">소통하기</a></li>
+            </ul>
+            <p class="p15">Website designed and developed by Lee SunHan<strong>©2024  All rights reserved.</strong></p>
+        </div>
+    </footer>
+</body>
+</html>
